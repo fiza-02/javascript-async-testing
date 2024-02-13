@@ -5,13 +5,12 @@ import { generateToken } from "./async";
 it("should generate a token value", (done) => {
 	const testUserEmail = "test@email.com";
 	generateToken(testUserEmail, (err, token) => {
-		// we want to get some value without existing not undefined
 		try {
+			expect(err).toBeNull(); // Check for no errors
 			expect(token).toBeDefined();
-			// expect(token).toBe(2);
-			done();
+			done(); // Signal that the asynchronous part of the test is complete
 		} catch (err) {
-			done(err);
+			done(err); // Signal that an error occurred, passing the error to the testing framework
 		}
 	});
 });
