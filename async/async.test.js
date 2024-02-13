@@ -17,8 +17,9 @@ it("should generate a token value", (done) => {
 
 //without done parameter
 
-it("should generate a token value", () => {
+it("should generate a token value", async () => {
 	const testUserEmail = "test@email.com";
+	const token = await generateTokenPromise(testUserEmail);
 	// you expect the resolved value of the promise returned by function call to be something
-	expect(generateTokenPromise(testUserEmail)).resolves.toBeDefined();
+	expect(token).toBeDefined();
 });
